@@ -1,0 +1,203 @@
+/* ============================================
+   THEME: INDUSTRIAL URBANO
+   ============================================ */
+
+[data-theme="industrial"] {
+    /* Colors - Industrial */
+    --color-bg-primary: #1a1a1a;
+    --color-bg-secondary: #232323;
+    --color-bg-tertiary: #2d2d2d;
+    --color-bg-card: rgba(255, 255, 255, 0.02);
+    
+    /* Accent Colors - Rust & Metal */
+    --color-accent-1: #d4622a;
+    --color-accent-2: #f5a623;
+    --color-accent-3: #8b7355;
+    --color-accent-4: #c9c9c9;
+    
+    /* Gradient */
+    --gradient-main: linear-gradient(135deg, var(--color-accent-1), var(--color-accent-2));
+    --gradient-alt: linear-gradient(90deg, var(--color-accent-2), var(--color-accent-1));
+    
+    /* Text */
+    --color-text-primary: #e8e8e8;
+    --color-text-secondary: rgba(255, 255, 255, 0.65);
+    --color-text-muted: rgba(255, 255, 255, 0.45);
+    
+    /* Effects */
+    --shadow-glow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    --shadow-glow-alt: 0 5px 20px rgba(212, 98, 42, 0.2);
+    
+    /* Borders */
+    --border-color: rgba(255, 255, 255, 0.08);
+    --border-color-hover: rgba(212, 98, 42, 0.4);
+}
+
+/* Industrial Background Texture */
+[data-theme="industrial"] body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Industrial specific overrides */
+[data-theme="industrial"] .hero__gradient {
+    background: 
+        radial-gradient(ellipse at 30% 70%, rgba(212, 98, 42, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 30%, rgba(245, 166, 35, 0.08) 0%, transparent 50%),
+        linear-gradient(180deg, rgba(0,0,0,0.3) 0%, transparent 50%);
+}
+
+[data-theme="industrial"] .hero__noise {
+    opacity: 0.06;
+}
+
+[data-theme="industrial"] .hero__glow {
+    display: none;
+}
+
+[data-theme="industrial"] .drinks__glow {
+    display: none;
+}
+
+[data-theme="industrial"] .title__line--accent {
+    filter: drop-shadow(0 5px 20px rgba(212, 98, 42, 0.3));
+}
+
+/* Buttons - Industrial style */
+[data-theme="industrial"] .btn--primary {
+    background: var(--gradient-main);
+    box-shadow: 0 4px 20px rgba(212, 98, 42, 0.3);
+}
+
+[data-theme="industrial"] .btn--primary:hover {
+    box-shadow: 0 6px 30px rgba(212, 98, 42, 0.5);
+}
+
+[data-theme="industrial"] .btn--outline {
+    border: 2px solid var(--color-accent-1);
+    color: var(--color-accent-2);
+}
+
+[data-theme="industrial"] .btn--outline:hover {
+    background: var(--color-accent-1);
+    color: var(--color-bg-primary);
+    border-color: var(--color-accent-1);
+    box-shadow: 0 4px 20px rgba(212, 98, 42, 0.4);
+}
+
+/* Cards - More solid, less glowy */
+[data-theme="industrial"] .drink-card {
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--border-color);
+}
+
+[data-theme="industrial"] .drink-card:hover {
+    border-color: var(--color-accent-1);
+}
+
+[data-theme="industrial"] .drink-card__glow {
+    display: none;
+}
+
+[data-theme="industrial"] .drink-card--featured {
+    border-color: var(--color-accent-1);
+    background: linear-gradient(135deg, var(--color-bg-tertiary), rgba(212, 98, 42, 0.1));
+}
+
+/* About section */
+[data-theme="industrial"] .about__image::before {
+    background: var(--gradient-main) border-box;
+}
+
+[data-theme="industrial"] .about__image-glow {
+    background: var(--color-accent-1);
+    opacity: 0.1;
+}
+
+[data-theme="industrial"] .about__floating-card {
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-accent-1);
+}
+
+/* Stats */
+[data-theme="industrial"] .stat__number {
+    color: var(--color-accent-2);
+    text-shadow: none;
+}
+
+/* Gallery */
+[data-theme="industrial"] .gallery__item::before {
+    background: var(--gradient-main) border-box;
+}
+
+/* Section tags */
+[data-theme="industrial"] .section__tag {
+    color: var(--color-accent-2);
+}
+
+[data-theme="industrial"] .section__tag::before {
+    background: var(--color-accent-1);
+    box-shadow: none;
+}
+
+/* Contact icons */
+[data-theme="industrial"] .contact__icon svg {
+    color: var(--color-accent-2);
+}
+
+[data-theme="industrial"] .contact__social {
+    color: var(--color-accent-1);
+}
+
+/* Features */
+[data-theme="industrial"] .feature {
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--border-color);
+}
+
+[data-theme="industrial"] .feature:hover {
+    border-color: var(--color-accent-1);
+}
+
+/* Nav */
+[data-theme="industrial"] .nav__link::after {
+    background: var(--gradient-main);
+}
+
+[data-theme="industrial"] .logo__accent {
+    background: var(--gradient-main);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+/* Social */
+[data-theme="industrial"] .social__link:hover {
+    background: var(--color-accent-1);
+}
+
+/* Drink card list bullets */
+[data-theme="industrial"] .drink-card__list li::before {
+    background: var(--color-accent-1);
+    box-shadow: none;
+}
+
+/* Map */
+[data-theme="industrial"] .map__wrapper iframe {
+    filter: grayscale(1) contrast(1.1);
+    opacity: 0.6;
+}
+
+/* Scrollbar */
+[data-theme="industrial"] ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent-1);
+}
+
+/* Selection */
+[data-theme="industrial"] ::selection {
+    background: var(--color-accent-1);
+}

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- SEO Principal -->
+    <title>El Antiguo Desván | Pub Rock en Móstoles - Copas, Cerveza y Buen Rollo</title>
+    <meta name="description" content="El Antiguo Desván: tu pub de rock y pop en Móstoles. Ambiente único, cervezas frías, copas a buen precio, futbolín y billar. Zona Universidad-Central. ¡Ven a pasarlo bien!">
+    <meta name="keywords" content="pub Móstoles, bar rock Móstoles, copas Móstoles, cerveza Móstoles, pub rock Madrid, El Antiguo Desván, bar universidad Móstoles">
+    <meta name="author" content="El Antiguo Desván">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://elantiguodesvan.com/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="business.business">
+    <meta property="og:title" content="El Antiguo Desván | Pub Rock en Móstoles">
+    <meta property="og:description" content="Ambiente único pop/rock, cervezas frías y copas a buen precio. Futbolín, billar y el mejor rollo de Móstoles.">
+    <meta property="og:image" content="https://elantiguodesvan.com/assets/images/og-image.jpg">
+    <meta property="og:url" content="https://elantiguodesvan.com/">
+    <meta property="og:site_name" content="El Antiguo Desván">
+    <meta property="og:locale" content="es_ES">
+    <meta property="business:contact_data:locality" content="Móstoles">
+    <meta property="business:contact_data:region" content="Madrid">
+    <meta property="business:contact_data:country_name" content="España">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="El Antiguo Desván | Pub Rock en Móstoles">
+    <meta name="twitter:description" content="Ambiente único pop/rock, cervezas frías y copas a buen precio en Móstoles.">
+    <meta name="twitter:image" content="https://elantiguodesvan.com/assets/images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    
+    <!-- Preconnect para rendimiento -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Temas -->
+    <link rel="stylesheet" href="css/theme-neon.css">
+    <link rel="stylesheet" href="css/theme-industrial.css">
+    <link rel="stylesheet" href="css/theme-vintage.css">
+    <link rel="stylesheet" href="css/theme-minimal.css">
+    
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BarOrPub",
+        "name": "El Antiguo Desván",
+        "description": "Pub con ambiente rock y pop único en Móstoles. Cervezas, copas, futbolín y billar.",
+        "url": "https://elantiguodesvan.com/",
+        "telephone": "+34912531621",
+        "image": "https://elantiguodesvan.com/assets/images/og-image.jpg",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Calle Pintor Velázquez, 14 (posterior)",
+            "addressLocality": "Móstoles",
+            "addressRegion": "Madrid",
+            "postalCode": "28933",
+            "addressCountry": "ES"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "40.3267",
+            "longitude": "-3.8757"
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Friday", "Saturday"],
+                "opens": "20:00",
+                "closes": "03:00"
+            }
+        ],
+        "servesCuisine": "Bar",
+        "priceRange": "€€",
+        "amenityFeature": [
+            {"@type": "LocationFeatureSpecification", "name": "Futbolín", "value": true},
+            {"@type": "LocationFeatureSpecification", "name": "Billar", "value": true},
+            {"@type": "LocationFeatureSpecification", "name": "Música en vivo", "value": true}
+        ],
+        "sameAs": [
+            "https://www.instagram.com/elantiguodesvan/"
+        ]
+    }
+    </script>
+</head>
+<body data-theme="neon">
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">
+                <img src="assets/images/logo-header.png" alt="El Antiguo Desván" class="logo__img">
+            </a>
+            
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link active">Inicio</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#about" class="nav__link">Nosotros</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#gallery" class="nav__link">Galería</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#drinks" class="nav__link">Bebidas</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contact" class="nav__link">Contacto</a>
+                    </li>
+                </ul>
+
+                <!-- Theme Selector Desktop -->
+                <div class="theme-selector" id="theme-selector">
+                    <span class="theme-selector__label">Tema:</span>
+                    <select class="theme-selector__select" id="theme-select">
+                        <option value="neon">Neón</option>
+                        <option value="industrial">Industrial</option>
+                        <option value="vintage">Vintage Rock</option>
+                        <option value="minimal">Minimalista</option>
+                    </select>
+                </div>
+
+                <!-- Theme Selector Mobile -->
+                <div class="theme-selector theme-selector--mobile">
+                    <span class="theme-selector__label">Cambiar tema:</span>
+                    <select class="theme-selector__select" id="theme-select-mobile">
+                        <option value="neon">Neón</option>
+                        <option value="industrial">Industrial</option>
+                        <option value="vintage">Vintage Rock</option>
+                        <option value="minimal">Minimalista</option>
+                    </select>
+                </div>
+
+                <button class="nav__close" id="nav-close">
+                    <span></span>
+                </button>
+            </div>
+            
+            <button class="nav__toggle" id="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero__bg">
+                <div class="hero__gradient"></div>
+                <div class="hero__noise"></div>
+                <div class="hero__glow hero__glow--1"></div>
+                <div class="hero__glow hero__glow--2"></div>
+            </div>
+            
+            <div class="hero__content container">
+                <div class="hero__badge" data-aos="fade-down">
+                    <span class="badge__icon">&#9733;</span>
+                    <span>Zona Universidad - Móstoles</span>
+                </div>
+                
+                <h1 class="hero__title" data-aos="fade-up">
+                    <span class="title__line">El Antiguo</span>
+                    <span class="title__line title__line--accent">Desván</span>
+                </h1>
+                
+                <p class="hero__subtitle" data-aos="fade-up" data-aos-delay="100">
+                    Rollo <span class="text-gradient">pop/rock</span> único en todo Madrid
+                </p>
+                
+                <p class="hero__description" data-aos="fade-up" data-aos-delay="200">
+                    Cervezas frías, copas a buen precio y el mejor ambiente.<br>
+                    No te va a doler la cabeza... ni el bolsillo.
+                </p>
+                
+                <div class="hero__cta" data-aos="fade-up" data-aos-delay="300">
+                    <a href="#gallery" class="btn btn--primary">
+                        <span>Descubre el ambiente</span>
+                        <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                        </svg>
+                    </a>
+                    <a href="#contact" class="btn btn--outline">
+                        <span>Cómo llegar</span>
+                    </a>
+                </div>
+                
+                <div class="hero__features" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature">
+                        <span class="feature__icon">🎱</span>
+                        <span class="feature__text">Billar</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature__icon">⚽</span>
+                        <span class="feature__text">Futbolín</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature__icon">🎸</span>
+                        <span class="feature__text">Rock & Pop</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero__scroll">
+                <span>Scroll</span>
+                <div class="scroll__line"></div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about section" id="about">
+            <div class="container">
+                <div class="about__grid">
+                    <div class="about__content" data-aos="fade-right">
+                        <span class="section__tag">Sobre nosotros</span>
+                        <h2 class="section__title">
+                            Más que un bar,<br>
+                            <span class="text-gradient">tu segundo hogar</span>
+                        </h2>
+                        <p class="about__text">
+                            En El Antiguo Desván encontrarás ese ambiente que echabas de menos. 
+                            Un lugar donde la música rock y pop suena como debe sonar, donde las 
+                            cervezas están siempre frías y donde el buen rollo es la norma.
+                        </p>
+                        <p class="about__text">
+                            Llevamos años siendo el punto de encuentro de los que buscan algo 
+                            diferente en Móstoles. Sin pretensiones, sin postureo, solo buena 
+                            música, buenas bebidas y mejor compañía.
+                        </p>
+                        
+                        <div class="about__stats">
+                            <div class="stat">
+                                <span class="stat__number" data-count="10">0</span>
+                                <span class="stat__label">Años de historia</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat__number" data-count="50">0</span>
+                                <span class="stat__suffix">+</span>
+                                <span class="stat__label">Tipos de cerveza</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat__number" data-count="1000">0</span>
+                                <span class="stat__suffix">+</span>
+                                <span class="stat__label">Clientes felices</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about__visual" data-aos="fade-left">
+                        <div class="about__image-wrapper">
+                            <div class="about__image">
+                                <img src="assets/images/about-bar.jpg" alt="Interior de El Antiguo Desván pub en Móstoles" loading="lazy">
+                            </div>
+                            <div class="about__image-glow"></div>
+                        </div>
+                        <div class="about__floating-card">
+                            <span class="floating__icon">🍺</span>
+                            <span class="floating__text">Estrella Galicia<br><small>La más pedida</small></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery section" id="gallery">
+            <div class="container">
+                <div class="section__header" data-aos="fade-up">
+                    <span class="section__tag">Galería</span>
+                    <h2 class="section__title">
+                        Vive el <span class="text-gradient">ambiente</span>
+                    </h2>
+                    <p class="section__description">
+                        Así se vive una noche en El Antiguo Desván
+                    </p>
+                </div>
+                
+                <div class="gallery__grid" data-aos="fade-up" data-aos-delay="100">
+                    <div class="gallery__item gallery__item--large">
+                        <img src="assets/images/gallery-1.jpg" alt="Ambiente nocturno en El Antiguo Desván" loading="lazy">
+                        <div class="gallery__overlay">
+                            <span class="gallery__caption">Noches de rock</span>
+                        </div>
+                    </div>
+                    <div class="gallery__item">
+                        <img src="assets/images/gallery-2.jpg" alt="Barra de cervezas del pub" loading="lazy">
+                        <div class="gallery__overlay">
+                            <span class="gallery__caption">Nuestra barra</span>
+                        </div>
+                    </div>
+                    <div class="gallery__item">
+                        <img src="assets/images/gallery-3.jpg" alt="Zona de futbolín y billar" loading="lazy">
+                        <div class="gallery__overlay">
+                            <span class="gallery__caption">Zona de juegos</span>
+                        </div>
+                    </div>
+                    <div class="gallery__item">
+                        <img src="assets/images/gallery-4.jpg" alt="Copas y cócteles" loading="lazy">
+                        <div class="gallery__overlay">
+                            <span class="gallery__caption">Nuestras copas</span>
+                        </div>
+                    </div>
+                    <div class="gallery__item gallery__item--wide">
+                        <img src="assets/images/gallery-5.jpg" alt="Decoración rock del local" loading="lazy">
+                        <div class="gallery__overlay">
+                            <span class="gallery__caption">Decoración única</span>
+                        </div>
+                    </div>
+                    <div class="gallery__item">
+                        <img src="assets/images/gallery-6.jpg" alt="Grupo de amigos en El Antiguo Desván" loading="lazy">
+                        <div class="gallery__overlay">
+                            <span class="gallery__caption">Tu gente</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery__cta" data-aos="fade-up">
+                    <a href="https://www.instagram.com/elantiguodesvan/" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+                        <svg class="btn__icon btn__icon--left" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                        <span>Ver más en Instagram</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Drinks Section -->
+        <section class="drinks section" id="drinks">
+            <div class="drinks__bg">
+                <div class="drinks__glow drinks__glow--1"></div>
+                <div class="drinks__glow drinks__glow--2"></div>
+            </div>
+            
+            <div class="container">
+                <div class="section__header" data-aos="fade-up">
+                    <span class="section__tag">Carta</span>
+                    <h2 class="section__title">
+                        Lo que <span class="text-gradient">te espera</span>
+                    </h2>
+                    <p class="section__description">
+                        Calidad a precios que no duelen
+                    </p>
+                </div>
+                
+                <div class="drinks__grid">
+                    <!-- Cervezas -->
+                    <div class="drink-card" data-aos="fade-up" data-aos-delay="0">
+                        <div class="drink-card__icon">
+                            <span>🍺</span>
+                        </div>
+                        <h3 class="drink-card__title">Cervezas</h3>
+                        <p class="drink-card__description">
+                            Gran selección de tercios nacionales e importados. 
+                            Estrella Galicia, nuestra estrella.
+                        </p>
+                        <ul class="drink-card__list">
+                            <li>Tercios nacionales</li>
+                            <li>Cervezas importadas</li>
+                            <li>Cubos para compartir</li>
+                        </ul>
+                        <div class="drink-card__glow"></div>
+                    </div>
+                    
+                    <!-- Copas -->
+                    <div class="drink-card drink-card--featured" data-aos="fade-up" data-aos-delay="100">
+                        <div class="drink-card__badge">Popular</div>
+                        <div class="drink-card__icon">
+                            <span>🥃</span>
+                        </div>
+                        <h3 class="drink-card__title">Copas</h3>
+                        <p class="drink-card__description">
+                            Ginebra, Whisky, Ron, Vodka... Todo lo que necesitas 
+                            para una buena noche, a precios honestos.
+                        </p>
+                        <ul class="drink-card__list">
+                            <li>Ginebras premium</li>
+                            <li>Whiskies selectos</li>
+                            <li>Rones y vodkas</li>
+                        </ul>
+                        <div class="drink-card__glow"></div>
+                    </div>
+                    
+                    <!-- Ambiente -->
+                    <div class="drink-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="drink-card__icon">
+                            <span>🎮</span>
+                        </div>
+                        <h3 class="drink-card__title">Ocio</h3>
+                        <p class="drink-card__description">
+                            No solo venimos a beber. Futbolín, billar y la mejor 
+                            música rock/pop de fondo.
+                        </p>
+                        <ul class="drink-card__list">
+                            <li>Futbolín profesional</li>
+                            <li>Mesa de billar</li>
+                            <li>Música en directo</li>
+                        </ul>
+                        <div class="drink-card__glow"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact section" id="contact">
+            <div class="container">
+                <div class="contact__grid">
+                    <div class="contact__info" data-aos="fade-right">
+                        <span class="section__tag">Contacto</span>
+                        <h2 class="section__title">
+                            Ven a <span class="text-gradient">vernos</span>
+                        </h2>
+                        <p class="contact__text">
+                            Estamos en la zona Universidad - Central de Móstoles. 
+                            Fácil de encontrar, imposible de olvidar.
+                        </p>
+                        
+                        <div class="contact__details">
+                            <div class="contact__item">
+                                <div class="contact__icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                </div>
+                                <div class="contact__content">
+                                    <h4>Dirección</h4>
+                                    <p>C. Pintor Velázquez, 14 (posterior)<br>28933 Móstoles, Madrid</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact__item">
+                                <div class="contact__icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <polyline points="12 6 12 12 16 14"/>
+                                    </svg>
+                                </div>
+                                <div class="contact__content">
+                                    <h4>Horario</h4>
+                                    <p>Viernes y Sábado<br>20:00 - 03:00</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact__item">
+                                <div class="contact__icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                        <path d="M22 7l-10 7L2 7"/>
+                                    </svg>
+                                </div>
+                                <div class="contact__content">
+                                    <h4>Síguenos</h4>
+                                    <a href="https://www.instagram.com/elantiguodesvan/" target="_blank" rel="noopener noreferrer" class="contact__social">
+                                        @elantiguodesvan
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="https://maps.google.com/?q=C.+Pintor+Velazquez+14+Mostoles+Madrid" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+                            <svg class="btn__icon btn__icon--left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            <span>Abrir en Google Maps</span>
+                        </a>
+                    </div>
+                    
+                    <div class="contact__map" data-aos="fade-left">
+                        <div class="map__wrapper">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3041.5!2d-3.8757!3d40.3267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd418855c8b9e2f3%3A0x8f0e8c8c8c8c8c8c!2sC.%20Pintor%20Vel%C3%A1zquez%2C%2014%2C%2028933%20M%C3%B3stoles%2C%20Madrid!5e0!3m2!1ses!2ses!4v1702828800000!5m2!1ses!2ses"
+                                width="100%"
+                                height="100%"
+                                style="border:0;"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="Ubicación de El Antiguo Desván en Google Maps">
+                            </iframe>
+                            <div class="map__overlay"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <a href="#" class="footer__logo">
+                        <span class="logo__text">El Antiguo</span>
+                        <span class="logo__accent">Desván</span>
+                    </a>
+                    <p class="footer__tagline">
+                        Tu pub de rock en Móstoles desde hace más de 10 años.
+                    </p>
+                </div>
+                
+                <div class="footer__social">
+                    <a href="https://www.instagram.com/elantiguodesvan/" target="_blank" rel="noopener noreferrer" class="social__link" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p>&copy; 2024 El Antiguo Desván. Todos los derechos reservados.</p>
+                <p class="footer__legal">
+                    <a href="#">Aviso Legal</a>
+                    <span>|</span>
+                    <a href="#">Política de Privacidad</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>

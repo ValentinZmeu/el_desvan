@@ -1,0 +1,303 @@
+/* ============================================
+   THEME: MINIMALISTA ELEGANTE
+   ============================================ */
+
+[data-theme="minimal"] {
+    /* Colors - Clean & Minimal */
+    --color-bg-primary: #0f0f0f;
+    --color-bg-secondary: #161616;
+    --color-bg-tertiary: #1e1e1e;
+    --color-bg-card: rgba(255, 255, 255, 0.02);
+    
+    /* Accent Colors - Monochrome with one accent */
+    --color-accent-1: #ffffff;
+    --color-accent-2: #888888;
+    --color-accent-3: #444444;
+    --color-accent-4: #e63946;
+    
+    /* Gradient */
+    --gradient-main: linear-gradient(135deg, var(--color-accent-1), var(--color-accent-2));
+    --gradient-alt: linear-gradient(90deg, var(--color-accent-4), var(--color-accent-1));
+    
+    /* Text */
+    --color-text-primary: #ffffff;
+    --color-text-secondary: rgba(255, 255, 255, 0.6);
+    --color-text-muted: rgba(255, 255, 255, 0.4);
+    
+    /* Effects */
+    --shadow-glow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    --shadow-glow-alt: none;
+    
+    /* Borders */
+    --border-color: rgba(255, 255, 255, 0.06);
+    --border-color-hover: rgba(255, 255, 255, 0.15);
+}
+
+/* Minimal specific overrides */
+[data-theme="minimal"] .hero__gradient {
+    background: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.03) 0%, transparent 70%);
+}
+
+[data-theme="minimal"] .hero__noise {
+    display: none;
+}
+
+[data-theme="minimal"] .hero__glow {
+    display: none;
+}
+
+[data-theme="minimal"] .drinks__glow {
+    display: none;
+}
+
+[data-theme="minimal"] .title__line--accent {
+    background: var(--color-text-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    filter: none;
+    opacity: 0.9;
+}
+
+/* Clean typography */
+[data-theme="minimal"] .hero__title {
+    font-weight: 400;
+    letter-spacing: 10px;
+}
+
+[data-theme="minimal"] .section__title {
+    font-weight: 400;
+}
+
+/* Buttons - Ultra clean */
+[data-theme="minimal"] .btn {
+    border-radius: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8125rem;
+}
+
+[data-theme="minimal"] .btn--primary {
+    background: var(--color-accent-1);
+    color: var(--color-bg-primary);
+    box-shadow: none;
+}
+
+[data-theme="minimal"] .btn--primary:hover {
+    background: var(--color-accent-4);
+    color: var(--color-accent-1);
+    box-shadow: none;
+    transform: none;
+}
+
+[data-theme="minimal"] .btn--primary::before {
+    display: none;
+}
+
+[data-theme="minimal"] .btn--outline {
+    border: 1px solid var(--color-accent-1);
+    color: var(--color-accent-1);
+}
+
+[data-theme="minimal"] .btn--outline:hover {
+    background: var(--color-accent-1);
+    color: var(--color-bg-primary);
+    box-shadow: none;
+    transform: none;
+}
+
+/* Cards - Minimal borders */
+[data-theme="minimal"] .drink-card {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 0;
+}
+
+[data-theme="minimal"] .drink-card:hover {
+    border-color: var(--color-accent-1);
+    background: transparent;
+}
+
+[data-theme="minimal"] .drink-card::before {
+    display: none;
+}
+
+[data-theme="minimal"] .drink-card__glow {
+    display: none;
+}
+
+[data-theme="minimal"] .drink-card--featured {
+    border-color: var(--color-accent-4);
+    background: transparent;
+}
+
+[data-theme="minimal"] .drink-card__badge {
+    background: var(--color-accent-4);
+    border-radius: 0;
+}
+
+[data-theme="minimal"] .drink-card__icon {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 0;
+}
+
+/* About */
+[data-theme="minimal"] .about__image {
+    border-radius: 0;
+}
+
+[data-theme="minimal"] .about__image::before {
+    display: none;
+}
+
+[data-theme="minimal"] .about__image-glow {
+    display: none;
+}
+
+[data-theme="minimal"] .about__floating-card {
+    background: var(--color-bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 0;
+    box-shadow: var(--shadow-glow);
+}
+
+/* Stats */
+[data-theme="minimal"] .stat__number {
+    color: var(--color-accent-1);
+    text-shadow: none;
+    font-weight: 400;
+}
+
+/* Gallery - No rounded corners */
+[data-theme="minimal"] .gallery__item {
+    border-radius: 0;
+}
+
+[data-theme="minimal"] .gallery__item::before {
+    display: none;
+}
+
+[data-theme="minimal"] .gallery__overlay {
+    background: linear-gradient(to top, var(--color-bg-primary) 0%, transparent 60%);
+}
+
+/* Section tags - Minimal */
+[data-theme="minimal"] .section__tag {
+    color: var(--color-accent-2);
+    letter-spacing: 3px;
+    font-size: 0.75rem;
+}
+
+[data-theme="minimal"] .section__tag::before {
+    width: 30px;
+    height: 1px;
+    background: var(--color-accent-2);
+    box-shadow: none;
+}
+
+/* Badge */
+[data-theme="minimal"] .hero__badge {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 0;
+}
+
+/* Features */
+[data-theme="minimal"] .feature {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 0;
+}
+
+[data-theme="minimal"] .feature:hover {
+    border-color: var(--color-accent-1);
+    background: transparent;
+}
+
+/* Nav */
+[data-theme="minimal"] .nav__link::after {
+    background: var(--color-accent-1);
+    height: 1px;
+}
+
+[data-theme="minimal"] .logo__accent {
+    background: none;
+    -webkit-text-fill-color: var(--color-accent-1);
+}
+
+/* Contact */
+[data-theme="minimal"] .contact__icon {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 0;
+}
+
+[data-theme="minimal"] .contact__icon svg {
+    color: var(--color-accent-1);
+}
+
+[data-theme="minimal"] .contact__social {
+    color: var(--color-accent-4);
+}
+
+/* Social */
+[data-theme="minimal"] .social__link {
+    border-radius: 0;
+}
+
+[data-theme="minimal"] .social__link:hover {
+    background: var(--color-accent-1);
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* List bullets */
+[data-theme="minimal"] .drink-card__list li::before {
+    width: 4px;
+    height: 4px;
+    background: var(--color-accent-2);
+    box-shadow: none;
+}
+
+/* Map */
+[data-theme="minimal"] .map__wrapper {
+    border-radius: 0;
+}
+
+[data-theme="minimal"] .map__wrapper iframe {
+    filter: grayscale(1);
+    opacity: 0.5;
+}
+
+/* Scrollbar */
+[data-theme="minimal"] ::-webkit-scrollbar-thumb {
+    border-radius: 0;
+}
+
+[data-theme="minimal"] ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent-1);
+}
+
+/* Selection */
+[data-theme="minimal"] ::selection {
+    background: var(--color-accent-4);
+}
+
+/* Header */
+[data-theme="minimal"] .header::before {
+    background: rgba(15, 15, 15, 0.95);
+}
+
+/* Scroll indicator */
+[data-theme="minimal"] .scroll__line {
+    background: linear-gradient(to bottom, var(--color-accent-2), transparent);
+}
+
+/* No animations on hover for minimal */
+[data-theme="minimal"] .about__image:hover img {
+    transform: none;
+}
+
+[data-theme="minimal"] .gallery__item:hover img {
+    transform: scale(1.02);
+}

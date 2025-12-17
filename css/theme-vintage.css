@@ -1,0 +1,266 @@
+/* ============================================
+   THEME: VINTAGE ROCK
+   ============================================ */
+
+[data-theme="vintage"] {
+    /* Colors - Vintage Rock */
+    --color-bg-primary: #1c1410;
+    --color-bg-secondary: #251a14;
+    --color-bg-tertiary: #2e2018;
+    --color-bg-card: rgba(255, 235, 205, 0.03);
+    
+    /* Accent Colors - Warm vintage */
+    --color-accent-1: #c41e3a;
+    --color-accent-2: #daa520;
+    --color-accent-3: #8b4513;
+    --color-accent-4: #f4e4c1;
+    
+    /* Gradient */
+    --gradient-main: linear-gradient(135deg, var(--color-accent-1), var(--color-accent-2));
+    --gradient-alt: linear-gradient(90deg, var(--color-accent-2), var(--color-accent-1));
+    
+    /* Text */
+    --color-text-primary: #f4e4c1;
+    --color-text-secondary: rgba(244, 228, 193, 0.75);
+    --color-text-muted: rgba(244, 228, 193, 0.5);
+    
+    /* Effects */
+    --shadow-glow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    --shadow-glow-alt: 0 5px 20px rgba(196, 30, 58, 0.2);
+    
+    /* Borders */
+    --border-color: rgba(244, 228, 193, 0.1);
+    --border-color-hover: rgba(196, 30, 58, 0.4);
+}
+
+/* Vintage texture overlay */
+[data-theme="vintage"] body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 0, 0, 0.03) 2px,
+            rgba(0, 0, 0, 0.03) 4px
+        );
+    pointer-events: none;
+    z-index: 9999;
+}
+
+[data-theme="vintage"] body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.4) 100%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Vintage specific overrides */
+[data-theme="vintage"] .hero__gradient {
+    background: 
+        radial-gradient(ellipse at 50% 50%, rgba(196, 30, 58, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 80%, rgba(218, 165, 32, 0.06) 0%, transparent 50%);
+}
+
+[data-theme="vintage"] .hero__noise {
+    opacity: 0.08;
+}
+
+[data-theme="vintage"] .hero__glow {
+    display: none;
+}
+
+[data-theme="vintage"] .drinks__glow {
+    display: none;
+}
+
+[data-theme="vintage"] .title__line--accent {
+    filter: drop-shadow(0 3px 15px rgba(196, 30, 58, 0.4));
+}
+
+/* Typography - More classic feel */
+[data-theme="vintage"] .hero__title {
+    letter-spacing: 8px;
+}
+
+[data-theme="vintage"] .section__title {
+    letter-spacing: 3px;
+}
+
+/* Buttons */
+[data-theme="vintage"] .btn--primary {
+    background: var(--color-accent-1);
+    box-shadow: 0 4px 0 #8b1428, 0 8px 20px rgba(0,0,0,0.3);
+    border-radius: 4px;
+}
+
+[data-theme="vintage"] .btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #8b1428, 0 12px 25px rgba(0,0,0,0.4);
+}
+
+[data-theme="vintage"] .btn--outline {
+    border: 2px solid var(--color-accent-4);
+    color: var(--color-accent-4);
+    border-radius: 4px;
+}
+
+[data-theme="vintage"] .btn--outline:hover {
+    background: var(--color-accent-4);
+    color: var(--color-bg-primary);
+    box-shadow: 0 4px 0 #b8a888, 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Cards */
+[data-theme="vintage"] .drink-card {
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+[data-theme="vintage"] .drink-card:hover {
+    border-color: var(--color-accent-2);
+}
+
+[data-theme="vintage"] .drink-card__glow {
+    display: none;
+}
+
+[data-theme="vintage"] .drink-card--featured {
+    border: 2px solid var(--color-accent-1);
+    background: linear-gradient(135deg, var(--color-bg-tertiary), rgba(196, 30, 58, 0.1));
+}
+
+[data-theme="vintage"] .drink-card__badge {
+    background: var(--color-accent-1);
+    border-radius: 2px;
+}
+
+/* About */
+[data-theme="vintage"] .about__image::before {
+    background: var(--color-accent-2) border-box;
+}
+
+[data-theme="vintage"] .about__image-glow {
+    display: none;
+}
+
+[data-theme="vintage"] .about__floating-card {
+    background: var(--color-bg-tertiary);
+    border: 2px solid var(--color-accent-2);
+    border-radius: 4px;
+}
+
+/* Stats */
+[data-theme="vintage"] .stat__number {
+    color: var(--color-accent-2);
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+}
+
+/* Gallery */
+[data-theme="vintage"] .gallery__item {
+    border-radius: 4px;
+}
+
+[data-theme="vintage"] .gallery__item::before {
+    background: var(--color-accent-2) border-box;
+    border-radius: 4px;
+}
+
+/* Section tags */
+[data-theme="vintage"] .section__tag {
+    color: var(--color-accent-2);
+    font-style: italic;
+}
+
+[data-theme="vintage"] .section__tag::before {
+    background: var(--color-accent-1);
+    box-shadow: none;
+}
+
+/* Badge */
+[data-theme="vintage"] .hero__badge {
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-accent-2);
+    border-radius: 4px;
+}
+
+/* Features */
+[data-theme="vintage"] .feature {
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+[data-theme="vintage"] .feature:hover {
+    border-color: var(--color-accent-2);
+}
+
+/* Nav */
+[data-theme="vintage"] .nav__link::after {
+    background: var(--color-accent-1);
+}
+
+[data-theme="vintage"] .logo__accent {
+    background: var(--gradient-main);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+/* Contact */
+[data-theme="vintage"] .contact__icon {
+    border-radius: 4px;
+}
+
+[data-theme="vintage"] .contact__icon svg {
+    color: var(--color-accent-2);
+}
+
+[data-theme="vintage"] .contact__social {
+    color: var(--color-accent-1);
+}
+
+/* Social */
+[data-theme="vintage"] .social__link {
+    border-radius: 4px;
+}
+
+[data-theme="vintage"] .social__link:hover {
+    background: var(--color-accent-1);
+    border-radius: 4px;
+}
+
+/* List bullets */
+[data-theme="vintage"] .drink-card__list li::before {
+    background: var(--color-accent-2);
+    box-shadow: none;
+}
+
+/* Map */
+[data-theme="vintage"] .map__wrapper {
+    border-radius: 4px;
+}
+
+[data-theme="vintage"] .map__wrapper iframe {
+    filter: sepia(0.5) contrast(1.1);
+    opacity: 0.7;
+}
+
+/* Scrollbar */
+[data-theme="vintage"] ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent-1);
+}
+
+/* Selection */
+[data-theme="vintage"] ::selection {
+    background: var(--color-accent-1);
+}
+
+/* Header */
+[data-theme="vintage"] .header::before {
+    background: rgba(28, 20, 16, 0.9);
+}
