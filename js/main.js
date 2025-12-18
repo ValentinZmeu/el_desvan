@@ -4,7 +4,6 @@
 
 // ========== DOM Content Loaded ==========
 document.addEventListener('DOMContentLoaded', () => {
-    initThemeSwitcher();
     initNavigation();
     initScrollHeader();
     initScrollAnimations();
@@ -13,71 +12,32 @@ document.addEventListener('DOMContentLoaded', () => {
     initGalleryLightbox();
     initSmoothScroll();
     initCursorGlow();
+    initBackToTop();
 });
 
-// ========== Theme Switcher ==========
-function initThemeSwitcher() {
-    const themeSelect = document.getElementById('theme-select');
-    const themeSelectMobile = document.getElementById('theme-select-mobile');
-    const body = document.body;
-    const validThemes = ['neon', 'industrial', 'vintage', 'minimal'];
+// ========== Back to Top Button ==========
+function initBackToTop() {
+    const backToTopBtn = document.getElementById('back-to-top');
+    if (!backToTopBtn) return;
 
-    // Get theme from URL parameter (priority) or localStorage
-    const urlParams = new URLSearchParams(window.location.search);
-    const urlTheme = urlParams.get('theme');
-    const savedTheme = (urlTheme && validThemes.includes(urlTheme))
-        ? urlTheme
-        : (localStorage.getItem('el-desvan-theme') || 'neon');
+    const scrollThreshold = window.innerHeight * 1.5; // 150vh
 
-    setTheme(savedTheme, false);
-
-    // Sync both selects
-    if (themeSelect) themeSelect.value = savedTheme;
-    if (themeSelectMobile) themeSelectMobile.value = savedTheme;
-
-    // Desktop theme selector
-    if (themeSelect) {
-        themeSelect.addEventListener('change', (e) => {
-            const theme = e.target.value;
-            setTheme(theme, true);
-            if (themeSelectMobile) themeSelectMobile.value = theme;
-        });
-    }
-
-    // Mobile theme selector
-    if (themeSelectMobile) {
-        themeSelectMobile.addEventListener('change', (e) => {
-            const theme = e.target.value;
-            setTheme(theme, true);
-            if (themeSelect) themeSelect.value = theme;
-        });
-    }
-
-    function setTheme(theme, updateUrl = true) {
-        // Add transition class for smooth theme change
-        body.classList.add('theme-transitioning');
-
-        // Change theme
-        body.setAttribute('data-theme', theme);
-
-        // Save to localStorage
-        localStorage.setItem('el-desvan-theme', theme);
-
-        // Update URL with theme parameter
-        if (updateUrl) {
-            const url = new URL(window.location);
-            url.searchParams.set('theme', theme);
-            window.history.replaceState({}, '', url);
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > scrollThreshold) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
         }
+    });
 
-        // Remove transition class after animation
-        setTimeout(() => {
-            body.classList.remove('theme-transitioning');
-        }, 300);
-
-        // Dispatch custom event for other components
-        window.dispatchEvent(new CustomEvent('themechange', { detail: { theme } }));
-    }
+    // Scroll to top on click
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 }
 
 // ========== Navigation ==========
