@@ -130,22 +130,35 @@ function updateActiveNavOnScroll() {
 
     // Cache section positions to avoid reflow on scroll
     let sectionData = [];
+    let isCacheReady = false;
 
     function cacheSectionPositions() {
-        sectionData = Array.from(sections).map(section => ({
-            id: section.getAttribute('id'),
-            top: section.offsetTop - 150,
-            height: section.offsetHeight
-        }));
+        // Batch all reads together to avoid layout thrashing
+        const positions = [];
+        sections.forEach(section => {
+            positions.push({
+                id: section.getAttribute('id'),
+                top: section.offsetTop - 150,
+                height: section.offsetHeight
+            });
+        });
+        sectionData = positions;
+        isCacheReady = true;
     }
 
-    // Initial cache
-    cacheSectionPositions();
+    // Defer initial cache until browser is idle to avoid forced reflow during initialization
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(cacheSectionPositions, { timeout: 1000 });
+    } else {
+        // Fallback: defer to next frame after paint
+        setTimeout(cacheSectionPositions, 100);
+    }
 
     // Update cache on resize
     window.addEventListener('resize', debounce(cacheSectionPositions, 250), { passive: true });
 
     window.addEventListener('scroll', throttle(() => {
+        if (!isCacheReady) return; // Skip until positions are cached
         const scrollY = window.pageYOffset;
 
         sectionData.forEach(section => {
@@ -496,6 +509,15 @@ function initGalleryLightbox() {
 // ========== Smooth Scroll ==========
 function initSmoothScroll() {
     const links = document.querySelectorAll('a[href^="#"]');
+    const header = document.querySelector('.header');
+
+    // Cache header height to avoid reflow on each click
+    let headerHeight = header ? header.offsetHeight : 80;
+
+    // Update cached height on resize
+    window.addEventListener('resize', debounce(() => {
+        if (header) headerHeight = header.offsetHeight;
+    }, 250), { passive: true });
 
     links.forEach(link => {
         link.addEventListener('click', (e) => {
@@ -506,7 +528,7 @@ function initSmoothScroll() {
             const target = document.querySelector(href);
 
             if (target) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
+                // Read target position (single read, no interleaved writes)
                 const targetPosition = target.offsetTop - headerHeight;
 
                 window.scrollTo({
