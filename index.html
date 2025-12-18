@@ -11,7 +11,7 @@
     <meta name="keywords" content="pub Móstoles, bar rock Móstoles, copas Móstoles, cerveza Móstoles, pub rock Madrid, El Antiguo Desván, bar universidad Móstoles">
     <meta name="author" content="El Antiguo Desván">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="/">
+    <link rel="canonical" href="https://elantiguodesvan.com/">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="business.business">
@@ -56,8 +56,14 @@
     <!-- Estilos -->
     <link rel="stylesheet" href="/css/styles.css">
 
-    <!-- Tema -->
-    <link rel="stylesheet" href="/css/theme-minimal.css">
+    <!-- Tema crítico inlined para evitar bloqueo de renderizado -->
+    <style>
+    [data-theme="minimal"]{--color-bg-primary:#0f0f0f;--color-bg-secondary:#161616;--color-bg-tertiary:#1e1e1e;--color-bg-card:rgba(255,255,255,.02);--color-accent-1:#fff;--color-accent-2:#888;--color-accent-3:#444;--color-accent-4:#e63946;--gradient-main:linear-gradient(135deg,var(--color-accent-1),var(--color-accent-2));--gradient-alt:linear-gradient(90deg,var(--color-accent-4),var(--color-accent-1));--color-text-primary:#fff;--color-text-secondary:rgba(255,255,255,.6);--color-text-muted:rgba(255,255,255,.4);--shadow-glow:0 20px 60px rgba(0,0,0,.4);--shadow-glow-alt:none;--border-color:rgba(255,255,255,.06);--border-color-hover:rgba(255,255,255,.15)}[data-theme="minimal"] .hero__gradient{background:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.03) 0%,transparent 70%)}[data-theme="minimal"] .hero__noise,[data-theme="minimal"] .hero__glow,[data-theme="minimal"] .drinks__glow{display:none}[data-theme="minimal"] .title__line--accent{background:var(--color-text-primary);-webkit-background-clip:text;background-clip:text;filter:none;opacity:.9}[data-theme="minimal"] .hero__title{font-weight:400;letter-spacing:10px}[data-theme="minimal"] .section__title{font-weight:400}[data-theme="minimal"] .btn{border-radius:0;text-transform:uppercase;letter-spacing:2px;font-size:.8125rem}[data-theme="minimal"] .btn--primary{background:var(--color-accent-1);color:var(--color-bg-primary);box-shadow:none}[data-theme="minimal"] .btn--primary:hover{background:var(--color-accent-4);color:var(--color-accent-1);box-shadow:none;transform:none}[data-theme="minimal"] .btn--primary::before{display:none}[data-theme="minimal"] .btn--outline{border:1px solid var(--color-accent-1);color:var(--color-accent-1)}[data-theme="minimal"] .btn--outline:hover{background:var(--color-accent-1);color:var(--color-bg-primary);box-shadow:none;transform:none}
+    </style>
+
+    <!-- Resto del tema (no crítico) -->
+    <link rel="stylesheet" href="/css/theme-minimal.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/css/theme-minimal.css"></noscript>
     
     <!-- Schema.org LocalBusiness -->
     <script type="application/ld+json">
@@ -114,7 +120,10 @@
     <header class="header" id="header">
         <nav class="nav container">
             <a href="#" class="nav__logo">
-                <img src="/assets/images/logo-header.png" alt="El Antiguo Desván" class="logo__img" fetchpriority="high" width="120" height="40">
+                <picture>
+                    <source srcset="/assets/images/logo-header.webp" type="image/webp">
+                    <img src="/assets/images/logo-header.png" alt="El Antiguo Desván" class="logo__img" fetchpriority="high" width="105" height="105">
+                </picture>
             </a>
             
             <div class="nav__menu" id="nav-menu">
@@ -136,12 +145,12 @@
                     </li>
                 </ul>
 
-                <button class="nav__close" id="nav-close">
+                <button class="nav__close" id="nav-close" aria-label="Cerrar menú">
                     <span></span>
                 </button>
             </div>
             
-            <button class="nav__toggle" id="nav-toggle">
+            <button class="nav__toggle" id="nav-toggle" aria-label="Abrir menú">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -257,7 +266,10 @@
                     <div class="about__visual" data-aos="fade-left">
                         <div class="about__image-wrapper">
                             <div class="about__image">
-                                <img src="/assets/images/bar-interior.jpg" alt="Interior de El Antiguo Desván pub en Móstoles" loading="lazy">
+                                <picture>
+                                    <source srcset="/assets/images/bar-interior.webp" type="image/webp">
+                                    <img src="/assets/images/bar-interior.jpg" alt="Interior de El Antiguo Desván pub en Móstoles" loading="lazy" width="952" height="1280">
+                                </picture>
                             </div>
                             <div class="about__image-glow"></div>
                         </div>
@@ -285,37 +297,55 @@
                 
                 <div class="gallery__grid" data-aos="fade-up" data-aos-delay="100">
                     <div class="gallery__item gallery__item--large">
-                        <img src="/assets/images/ambiente-decoracion.jpg" alt="Ambiente nocturno en El Antiguo Desván" loading="lazy">
+                        <picture>
+                            <source srcset="/assets/images/ambiente-decoracion.webp" type="image/webp">
+                            <img src="/assets/images/ambiente-decoracion.jpg" alt="Ambiente nocturno en El Antiguo Desván" loading="lazy" width="1280" height="860">
+                        </picture>
                         <div class="gallery__overlay">
                             <span class="gallery__caption">Noches de rock</span>
                         </div>
                     </div>
                     <div class="gallery__item">
-                        <img src="/assets/images/neon-cocktails.jpg" alt="Cartel neón de cocktails" loading="lazy">
+                        <picture>
+                            <source srcset="/assets/images/neon-cocktails.webp" type="image/webp">
+                            <img src="/assets/images/neon-cocktails.jpg" alt="Cartel neón de cocktails" loading="lazy" width="1280" height="860">
+                        </picture>
                         <div class="gallery__overlay">
                             <span class="gallery__caption">Ambiente único</span>
                         </div>
                     </div>
                     <div class="gallery__item">
-                        <img src="/assets/images/futbolin.jpg" alt="Zona de futbolín" loading="lazy">
+                        <picture>
+                            <source srcset="/assets/images/futbolin.webp" type="image/webp">
+                            <img src="/assets/images/futbolin.jpg" alt="Zona de futbolín" loading="lazy" width="1280" height="860">
+                        </picture>
                         <div class="gallery__overlay">
                             <span class="gallery__caption">Zona de juegos</span>
                         </div>
                     </div>
                     <div class="gallery__item">
-                        <img src="/assets/images/copas-servir.jpg" alt="Copas y cócteles" loading="lazy">
+                        <picture>
+                            <source srcset="/assets/images/copas-servir.webp" type="image/webp">
+                            <img src="/assets/images/copas-servir.jpg" alt="Copas y cócteles" loading="lazy" width="1280" height="860">
+                        </picture>
                         <div class="gallery__overlay">
                             <span class="gallery__caption">Nuestras copas</span>
                         </div>
                     </div>
                     <div class="gallery__item">
-                        <img src="/assets/images/gallery-grupo-2.jpg" alt="Grupo de amigos en El Antiguo Desván" loading="lazy">
+                        <picture>
+                            <source srcset="/assets/images/gallery-grupo-2.webp" type="image/webp">
+                            <img src="/assets/images/gallery-grupo-2.jpg" alt="Grupo de amigos en El Antiguo Desván" loading="lazy" width="1600" height="1077">
+                        </picture>
                         <div class="gallery__overlay">
                             <span class="gallery__caption">Tu gente</span>
                         </div>
                     </div>
                     <div class="gallery__item">
-                        <img src="/assets/images/gallery-grupo-3.jpg" alt="Amigos pasándolo bien" loading="lazy">
+                        <picture>
+                            <source srcset="/assets/images/gallery-grupo-3.webp" type="image/webp">
+                            <img src="/assets/images/gallery-grupo-3.jpg" alt="Amigos pasándolo bien" loading="lazy" width="1280" height="860">
+                        </picture>
                         <div class="gallery__overlay">
                             <span class="gallery__caption">Buenos momentos</span>
                         </div>
@@ -591,7 +621,7 @@
                                     </svg>
                                 </div>
                                 <div class="contact__content">
-                                    <h4>Dirección</h4>
+                                    <span class="contact__label">Dirección</span>
                                     <p>C. Pintor Velázquez, 14 (posterior)<br>28933 Móstoles, Madrid</p>
                                 </div>
                             </div>
@@ -604,7 +634,7 @@
                                     </svg>
                                 </div>
                                 <div class="contact__content">
-                                    <h4>Horario</h4>
+                                    <span class="contact__label">Horario</span>
                                     <p>Jueves y Domingo: 20:00 - 01:00<br>Viernes y Sábado: 20:00 - 03:00</p>
                                 </div>
                             </div>
@@ -616,7 +646,7 @@
                                     </svg>
                                 </div>
                                 <div class="contact__content">
-                                    <h4>Síguenos</h4>
+                                    <span class="contact__label">Síguenos</span>
                                     <a href="https://www.instagram.com/elantiguodesvan/" target="_blank" rel="noopener noreferrer" class="contact__social">
                                         @elantiguodesvan
                                     </a>
@@ -671,7 +701,10 @@
             <div class="footer__content">
                 <div class="footer__brand">
                     <a href="#" class="footer__logo">
-                        <img src="/assets/images/logo.png" alt="El Antiguo Desván" class="footer__logo-img">
+                        <picture>
+                            <source srcset="/assets/images/logo.webp" type="image/webp">
+                            <img src="/assets/images/logo.png" alt="El Antiguo Desván" class="footer__logo-img" width="210" height="210">
+                        </picture>
                     </a>
                     <p class="footer__tagline">
                         Tu pub de rock en Móstoles desde hace más de 20 años.
@@ -685,8 +718,8 @@
                             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                         </svg>
                     </a>
-                    <a href="/cookies.html" class="footer__link-item">
-                        <span>Politica de Cookies</span>
+                    <a href="/cookies" class="footer__link-item">
+                        <span>Política de Cookies</span>
                         <svg viewBox="0 0 24 24" fill="currentColor" class="footer__link-icon">
                             <path d="M21.598 11.064a1.006 1.006 0 0 0-.854-.172A2.938 2.938 0 0 1 20 11c-1.654 0-3-1.346-3-3 0-.217.031-.444.099-.716a1 1 0 0 0-1.067-1.236A2.955 2.955 0 0 1 15.5 6c-1.654 0-3-1.346-3-3a2.95 2.95 0 0 1 .048-.523 1.002 1.002 0 0 0-1.236-1.067 9.994 9.994 0 0 0-7.19 5.492A10.002 10.002 0 0 0 12 22c5.239 0 9.581-4.075 9.961-9.227a1.006 1.006 0 0 0-.363-.709zM12 20c-4.411 0-8-3.589-8-8a7.962 7.962 0 0 1 3.22-6.409A4.932 4.932 0 0 0 10.5 8a4.997 4.997 0 0 0 4.687 4.969A4.997 4.997 0 0 0 20 14.05 7.996 7.996 0 0 1 12 20z"/>
                             <circle cx="8.5" cy="12.5" r="1.5"/>
@@ -719,7 +752,7 @@
         <div class="cookie-banner__content">
             <div class="cookie-banner__text">
                 <p>Usamos cookies de terceros (Google Maps) para mostrarte nuestra ubicación. No almacenamos datos personales.</p>
-                <a href="/cookies.html" class="cookie-banner__link">Más información</a>
+                <a href="/cookies" class="cookie-banner__link">Ver política de cookies</a>
             </div>
             <div class="cookie-banner__actions">
                 <button class="btn btn--outline btn--small" id="cookie-reject">Rechazar</button>
