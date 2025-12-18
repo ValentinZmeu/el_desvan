@@ -188,7 +188,7 @@
     font-size: 0.75rem;
 }
 
-[data-theme="minimal"] .section__tag::before {
+[data-theme="minimal"] .section__tag::after {
     width: 30px;
     height: 1px;
     background: var(--color-accent-2);

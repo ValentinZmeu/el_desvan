@@ -177,7 +177,7 @@
     font-style: italic;
 }
 
-[data-theme="vintage"] .section__tag::before {
+[data-theme="vintage"] .section__tag::after {
     background: var(--color-accent-1);
     box-shadow: none;
 }

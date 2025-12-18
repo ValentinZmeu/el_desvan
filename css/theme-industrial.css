@@ -140,7 +140,7 @@
     color: var(--color-accent-2);
 }
 
-[data-theme="industrial"] .section__tag::before {
+[data-theme="industrial"] .section__tag::after {
     background: var(--color-accent-1);
     box-shadow: none;
 }

@@ -20,10 +20,16 @@ function initThemeSwitcher() {
     const themeSelect = document.getElementById('theme-select');
     const themeSelectMobile = document.getElementById('theme-select-mobile');
     const body = document.body;
+    const validThemes = ['neon', 'industrial', 'vintage', 'minimal'];
 
-    // Load saved theme from localStorage
-    const savedTheme = localStorage.getItem('el-desvan-theme') || 'neon';
-    setTheme(savedTheme);
+    // Get theme from URL parameter (priority) or localStorage
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlTheme = urlParams.get('theme');
+    const savedTheme = (urlTheme && validThemes.includes(urlTheme))
+        ? urlTheme
+        : (localStorage.getItem('el-desvan-theme') || 'neon');
+
+    setTheme(savedTheme, false);
 
     // Sync both selects
     if (themeSelect) themeSelect.value = savedTheme;
@@ -33,7 +39,7 @@ function initThemeSwitcher() {
     if (themeSelect) {
         themeSelect.addEventListener('change', (e) => {
             const theme = e.target.value;
-            setTheme(theme);
+            setTheme(theme, true);
             if (themeSelectMobile) themeSelectMobile.value = theme;
         });
     }
@@ -42,12 +48,12 @@ function initThemeSwitcher() {
     if (themeSelectMobile) {
         themeSelectMobile.addEventListener('change', (e) => {
             const theme = e.target.value;
-            setTheme(theme);
+            setTheme(theme, true);
             if (themeSelect) themeSelect.value = theme;
         });
     }
 
-    function setTheme(theme) {
+    function setTheme(theme, updateUrl = true) {
         // Add transition class for smooth theme change
         body.classList.add('theme-transitioning');
 
@@ -56,6 +62,13 @@ function initThemeSwitcher() {
 
         // Save to localStorage
         localStorage.setItem('el-desvan-theme', theme);
+
+        // Update URL with theme parameter
+        if (updateUrl) {
+            const url = new URL(window.location);
+            url.searchParams.set('theme', theme);
+            window.history.replaceState({}, '', url);
+        }
 
         // Remove transition class after animation
         setTimeout(() => {

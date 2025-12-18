@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nActualización de imágenes y correcciones de estilo\n\n- Añadidas nuevas imágenes auténticas del pub (galería, ambiente, futbolín)\n- Actualizada sección About con nueva imagen del bar\n- Actualizada galería con fotos reales de clientes y ambiente\n- Corregido estilo de section tags (underline en vez de strikethrough)\n- Añadido logo en footer con efecto hover\n- Corregido orden del scroll indicator (línea arriba, texto abajo)\n- Actualizado enlace de Google Maps\n- Eliminadas imágenes no utilizadas\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n)\")"
+    ]
+  }
+}
