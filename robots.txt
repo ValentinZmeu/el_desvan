@@ -1,0 +1,12 @@
+# Robots.txt - El Antiguo Desván
+# https://elantiguodesvan.com/
+
+User-agent: *
+Allow: /
+
+# Archivos que no indexar
+Disallow: /.htaccess
+Disallow: /*.json$
+
+# Sitemap
+Sitemap: https://elantiguodesvan.com/sitemap.xml

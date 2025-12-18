@@ -1,0 +1,219 @@
+# =====================================================
+# El Antiguo Desván - Optimización SEO y Rendimiento
+# =====================================================
+
+# Activar motor de reescritura
+RewriteEngine On
+
+# =====================================================
+# HTTPS y WWW - Redirección canónica
+# =====================================================
+# Forzar HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Redirigir www a non-www (canonical)
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# =====================================================
+# COMPRESIÓN GZIP
+# =====================================================
+<IfModule mod_deflate.c>
+    # Comprimir HTML, CSS, JavaScript, Text, XML y fonts
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/ld+json
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE font/ttf
+    AddOutputFilterByType DEFLATE font/otf
+    AddOutputFilterByType DEFLATE font/woff
+    AddOutputFilterByType DEFLATE font/woff2
+
+    # Navegadores antiguos
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+    Header append Vary User-Agent
+</IfModule>
+
+# =====================================================
+# CACHÉ DEL NAVEGADOR
+# =====================================================
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+
+    # HTML - caché corto para contenido dinámico
+    ExpiresByType text/html "access plus 0 seconds"
+
+    # CSS y JavaScript
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType text/javascript "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType application/x-javascript "access plus 1 year"
+
+    # Imágenes
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType image/vnd.microsoft.icon "access plus 1 year"
+
+    # Fonts
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+
+    # Datos
+    ExpiresByType application/json "access plus 0 seconds"
+    ExpiresByType application/ld+json "access plus 1 week"
+    ExpiresByType application/xml "access plus 0 seconds"
+    ExpiresByType text/xml "access plus 0 seconds"
+
+    # Favicon
+    ExpiresByType image/x-icon "access plus 1 week"
+</IfModule>
+
+# Cache-Control Headers
+<IfModule mod_headers.c>
+    # CSS y JS - 1 año
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+
+    # Imágenes - 1 año
+    <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+
+    # Fonts - 1 año
+    <FilesMatch "\.(woff|woff2|ttf|otf|eot)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+
+    # HTML - no cachear
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires 0
+    </FilesMatch>
+</IfModule>
+
+# =====================================================
+# CABECERAS DE SEGURIDAD (mejora SEO indirectamente)
+# =====================================================
+<IfModule mod_headers.c>
+    # Prevenir clickjacking
+    Header always set X-Frame-Options "SAMEORIGIN"
+
+    # Prevenir MIME sniffing
+    Header always set X-Content-Type-Options "nosniff"
+
+    # XSS Protection
+    Header always set X-XSS-Protection "1; mode=block"
+
+    # Referrer Policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Permissions Policy
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+
+    # HSTS (descomentar solo si tienes HTTPS configurado)
+    # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+</IfModule>
+
+# =====================================================
+# MIME TYPES CORRECTOS
+# =====================================================
+<IfModule mod_mime.c>
+    # JavaScript
+    AddType application/javascript js mjs
+
+    # JSON
+    AddType application/json json
+    AddType application/ld+json jsonld
+
+    # Fonts
+    AddType font/woff woff
+    AddType font/woff2 woff2
+    AddType font/ttf ttf
+    AddType font/otf otf
+
+    # Imágenes
+    AddType image/webp webp
+    AddType image/svg+xml svg svgz
+
+    # Favicon
+    AddType image/x-icon ico
+</IfModule>
+
+# =====================================================
+# PREVENIR HOTLINKING DE IMÁGENES
+# =====================================================
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP_REFERER} !^$
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?elantiguodesvan\.com [NC]
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?google\. [NC]
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?facebook\. [NC]
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?instagram\. [NC]
+    RewriteRule \.(jpg|jpeg|png|gif|webp)$ - [F,NC,L]
+</IfModule>
+
+# =====================================================
+# PROTECCIÓN DE ARCHIVOS SENSIBLES
+# =====================================================
+# Bloquear acceso a archivos ocultos
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Proteger htaccess
+<Files .htaccess>
+    Order allow,deny
+    Deny from all
+</Files>
+
+# =====================================================
+# ETags (mejora caché)
+# =====================================================
+<IfModule mod_headers.c>
+    Header unset ETag
+</IfModule>
+FileETag None
+
+# =====================================================
+# KEEP-ALIVE (mejora velocidad de conexión)
+# =====================================================
+<IfModule mod_headers.c>
+    Header set Connection keep-alive
+</IfModule>
+
+# =====================================================
+# PÁGINA DE ERROR PERSONALIZADA
+# =====================================================
+ErrorDocument 404 /index.html
+
+# =====================================================
+# TRAILING SLASH - URLs limpias
+# =====================================================
+# Eliminar trailing slash (excepto directorios)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} (.+)/$
+RewriteRule ^ %1 [R=301,L]
