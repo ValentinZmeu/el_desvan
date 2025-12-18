@@ -2,6 +2,30 @@
    EL ANTIGUO DESVÁN - Main JavaScript
    ============================================ */
 
+// ========== Performance: Debounce & Throttle ==========
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+function throttle(func, limit) {
+    let inThrottle;
+    return function(...args) {
+        if (!inThrottle) {
+            func.apply(this, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
+}
+
 // ========== DOM Content Loaded ==========
 document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
@@ -24,13 +48,13 @@ function initBackToTop() {
     const scrollThreshold = window.innerHeight * 1.5; // 150vh
 
     // Show/hide button based on scroll position
-    window.addEventListener('scroll', () => {
+    window.addEventListener('scroll', throttle(() => {
         if (window.scrollY > scrollThreshold) {
             backToTopBtn.classList.add('visible');
         } else {
             backToTopBtn.classList.remove('visible');
         }
-    });
+    }, 150), { passive: true });
 
     // Scroll to top on click
     backToTopBtn.addEventListener('click', () => {
@@ -94,7 +118,7 @@ function updateActiveNavOnScroll() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav__link');
 
-    window.addEventListener('scroll', () => {
+    window.addEventListener('scroll', throttle(() => {
         const scrollY = window.pageYOffset;
 
         sections.forEach(section => {
@@ -111,7 +135,7 @@ function updateActiveNavOnScroll() {
                 });
             }
         });
-    });
+    }, 100), { passive: true });
 }
 
 // ========== Scroll Header Effect ==========
@@ -119,7 +143,7 @@ function initScrollHeader() {
     const header = document.getElementById('header');
     let lastScroll = 0;
 
-    window.addEventListener('scroll', () => {
+    window.addEventListener('scroll', throttle(() => {
         const currentScroll = window.pageYOffset;
 
         // Add scrolled class
@@ -137,7 +161,7 @@ function initScrollHeader() {
         }
 
         lastScroll = currentScroll;
-    });
+    }, 50), { passive: true });
 }
 
 // ========== Scroll Animations (AOS-like) ==========
@@ -213,29 +237,36 @@ function animateCounter(element) {
 function initParallaxEffects() {
     const heroGlows = document.querySelectorAll('.hero__glow');
     const floatingCard = document.querySelector('.about__floating-card');
+    let ticking = false;
 
     window.addEventListener('scroll', () => {
-        const scrollY = window.pageYOffset;
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                const scrollY = window.pageYOffset;
 
-        // Hero glow parallax
-        heroGlows.forEach((glow, index) => {
-            const speed = index === 0 ? 0.3 : 0.2;
-            glow.style.transform = `translate(${scrollY * speed * 0.1}px, ${scrollY * speed}px)`;
-        });
+                // Hero glow parallax
+                heroGlows.forEach((glow, index) => {
+                    const speed = index === 0 ? 0.3 : 0.2;
+                    glow.style.transform = `translate(${scrollY * speed * 0.1}px, ${scrollY * speed}px)`;
+                });
 
-        // Floating card parallax
-        if (floatingCard) {
-            const rect = floatingCard.getBoundingClientRect();
-            if (rect.top < window.innerHeight && rect.bottom > 0) {
-                floatingCard.style.transform = `translateY(${(scrollY * 0.05)}px)`;
-            }
+                // Floating card parallax
+                if (floatingCard) {
+                    const rect = floatingCard.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        floatingCard.style.transform = `translateY(${(scrollY * 0.05)}px)`;
+                    }
+                }
+                ticking = false;
+            });
+            ticking = true;
         }
-    });
+    }, { passive: true });
 
-    // Mouse move parallax on hero
+    // Mouse move parallax on hero (throttled)
     const hero = document.querySelector('.hero');
     if (hero) {
-        hero.addEventListener('mousemove', (e) => {
+        hero.addEventListener('mousemove', throttle((e) => {
             const { clientX, clientY } = e;
             const { innerWidth, innerHeight } = window;
 
@@ -246,7 +277,7 @@ function initParallaxEffects() {
                 const multiplier = index === 0 ? 1 : -1;
                 glow.style.transform = `translate(${xPos * multiplier}px, ${yPos * multiplier}px)`;
             });
-        });
+        }, 16), { passive: true });
     }
 }
 
@@ -555,30 +586,6 @@ function initMagneticButtons() {
 
 // Initialize magnetic buttons
 document.addEventListener('DOMContentLoaded', initMagneticButtons);
-
-// ========== Performance: Debounce & Throttle ==========
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-function throttle(func, limit) {
-    let inThrottle;
-    return function(...args) {
-        if (!inThrottle) {
-            func.apply(this, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
-    };
-}
 
 // ========== Cookie Consent ==========
 function initCookieConsent() {

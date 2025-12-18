@@ -310,11 +310,36 @@ button {
 .logo__img {
     height: 60px;
     width: auto;
-    transition: transform var(--transition-normal);
+    filter: brightness(1.05) drop-shadow(0 0 3px var(--color-accent-1)) drop-shadow(0 0 8px rgba(255, 45, 117, 0.25));
+    animation: neonFlickerSubtle 4s ease-in-out infinite;
+    animation-delay: 2s;
 }
 
 .nav__logo:hover .logo__img {
     transform: scale(1.05);
+    filter: brightness(1.2) drop-shadow(0 0 6px var(--color-accent-1)) drop-shadow(0 0 12px rgba(255, 45, 117, 0.4));
+    animation: none;
+}
+
+@keyframes neonFlickerSubtle {
+    0%, 100% {
+        filter: brightness(1.05) drop-shadow(0 0 3px var(--color-accent-1)) drop-shadow(0 0 8px rgba(255, 45, 117, 0.25));
+    }
+    50% {
+        filter: brightness(1.05) drop-shadow(0 0 3px var(--color-accent-1)) drop-shadow(0 0 8px rgba(255, 45, 117, 0.25));
+    }
+    52% {
+        filter: brightness(0.95) drop-shadow(0 0 2px var(--color-accent-1)) drop-shadow(0 0 5px rgba(255, 45, 117, 0.15));
+    }
+    54% {
+        filter: brightness(1.1) drop-shadow(0 0 5px var(--color-accent-1)) drop-shadow(0 0 10px rgba(255, 45, 117, 0.3));
+    }
+    56% {
+        filter: brightness(1) drop-shadow(0 0 2px var(--color-accent-1)) drop-shadow(0 0 6px rgba(255, 45, 117, 0.2));
+    }
+    58% {
+        filter: brightness(1.05) drop-shadow(0 0 3px var(--color-accent-1)) drop-shadow(0 0 8px rgba(255, 45, 117, 0.25));
+    }
 }
 
 .nav__menu {
@@ -1176,13 +1201,35 @@ button {
 .footer__logo-img {
     max-width: 120px;
     height: auto;
-    filter: brightness(1.1);
-    transition: filter var(--transition-normal), transform var(--transition-normal);
+    filter: brightness(1.1) drop-shadow(0 0 8px var(--color-accent-1)) drop-shadow(0 0 20px rgba(255, 45, 117, 0.4));
+    animation: neonFlicker 4s ease-in-out infinite;
 }
 
 .footer__logo:hover .footer__logo-img {
-    filter: brightness(1.3) drop-shadow(0 0 10px var(--color-accent-1));
+    filter: brightness(1.3) drop-shadow(0 0 15px var(--color-accent-1)) drop-shadow(0 0 30px rgba(255, 45, 117, 0.6));
     transform: scale(1.05);
+    animation: none;
+}
+
+@keyframes neonFlicker {
+    0%, 100% {
+        filter: brightness(1.1) drop-shadow(0 0 8px var(--color-accent-1)) drop-shadow(0 0 20px rgba(255, 45, 117, 0.4));
+    }
+    50% {
+        filter: brightness(1.1) drop-shadow(0 0 8px var(--color-accent-1)) drop-shadow(0 0 20px rgba(255, 45, 117, 0.4));
+    }
+    52% {
+        filter: brightness(0.9) drop-shadow(0 0 4px var(--color-accent-1)) drop-shadow(0 0 10px rgba(255, 45, 117, 0.2));
+    }
+    54% {
+        filter: brightness(1.2) drop-shadow(0 0 12px var(--color-accent-1)) drop-shadow(0 0 25px rgba(255, 45, 117, 0.5));
+    }
+    56% {
+        filter: brightness(0.95) drop-shadow(0 0 5px var(--color-accent-1)) drop-shadow(0 0 12px rgba(255, 45, 117, 0.3));
+    }
+    58% {
+        filter: brightness(1.1) drop-shadow(0 0 8px var(--color-accent-1)) drop-shadow(0 0 20px rgba(255, 45, 117, 0.4));
+    }
 }
 
 .footer__tagline {
