@@ -1160,6 +1160,13 @@ button {
     margin-bottom: 30px;
 }
 
+.footer__brand {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
 .footer__logo {
     display: flex;
     flex-direction: column;
@@ -1181,13 +1188,45 @@ button {
 .footer__tagline {
     color: var(--color-text-muted);
     font-size: 0.9375rem;
-    margin-top: 15px;
+    margin: 0;
     max-width: 300px;
 }
 
 .footer__social {
     display: flex;
     gap: 15px;
+}
+
+.footer__links-column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer__link-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    transition: color var(--transition-normal);
+}
+
+.footer__link-item:hover {
+    color: var(--color-text);
+}
+
+.footer__link-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+span.footer__link-icon {
+    font-size: 1.25rem;
+    width: auto;
+    height: auto;
 }
 
 .social__link {
@@ -1867,5 +1906,12 @@ button {
 
 .footer__links a:hover {
     color: var(--color-accent-1);
+}
+
+@media (max-width: 768px) {
+    .footer__brand {
+        flex-direction: column;
+        text-align: center;
+    }
 }
 
