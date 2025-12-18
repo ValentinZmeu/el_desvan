@@ -623,12 +623,24 @@
                     </div>
                     
                     <div class="contact__map" data-aos="fade-left">
-                        <div class="map__wrapper">
+                        <div class="map__wrapper" id="map-container">
+                            <!-- El mapa se carga solo si el usuario acepta cookies -->
+                            <div class="map__placeholder" id="map-placeholder">
+                                <div class="map__placeholder-content">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                    <p>Para ver el mapa, acepta las cookies de terceros</p>
+                                    <button class="btn btn--primary btn--small" id="accept-cookies-map">Aceptar cookies</button>
+                                </div>
+                            </div>
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3041.5!2d-3.8757!3d40.3267!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd418855c8b9e2f3%3A0x8f0e8c8c8c8c8c8c!2sC.%20Pintor%20Vel%C3%A1zquez%2C%2014%2C%2028933%20M%C3%B3stoles%2C%20Madrid!5e0!3m2!1ses!2ses!4v1702828800000!5m2!1ses!2ses"
+                                id="google-map"
+                                data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6082.929627666626!2d-3.8705087233879643!3d40.33203376078902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd418fd62af21815%3A0xd21542fdbaf7f125!2sEl%20Antiguo%20Desv%C3%A1n%20Pub!5e0!3m2!1ses!2ses!4v1766052555768!5m2!1ses!2ses"
                                 width="100%"
                                 height="100%"
-                                style="border:0;"
+                                style="border:0; display:none;"
                                 allowfullscreen=""
                                 loading="lazy"
                                 referrerpolicy="no-referrer-when-downgrade"
@@ -667,6 +679,9 @@
             <div class="footer__bottom">
                 <p>&copy; <span id="current-year"></span> El Antiguo Desván. Todos los derechos reservados.</p>
                 <script>document.getElementById('current-year').textContent = new Date().getFullYear();</script>
+                <p class="footer__links">
+                    <a href="cookies.html">Política de Cookies</a>
+                </p>
                 <p class="footer__credit">
                     Made with <span class="heart-pulse">&hearts;</span> by <a href="https://dev-dim.com" target="_blank" rel="noopener noreferrer">DevDim</a>
                 </p>
@@ -680,6 +695,20 @@
             <path d="M18 15l-6-6-6 6"/>
         </svg>
     </button>
+
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookie-banner">
+        <div class="cookie-banner__content">
+            <div class="cookie-banner__text">
+                <p>Usamos cookies de terceros (Google Maps) para mostrarte nuestra ubicación. No almacenamos datos personales.</p>
+                <a href="cookies.html" class="cookie-banner__link">Más información</a>
+            </div>
+            <div class="cookie-banner__actions">
+                <button class="btn btn--outline btn--small" id="cookie-reject">Rechazar</button>
+                <button class="btn btn--primary btn--small" id="cookie-accept">Aceptar</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script src="js/main.js"></script>

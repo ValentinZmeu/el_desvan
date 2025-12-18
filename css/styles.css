@@ -1743,3 +1743,129 @@ button {
     }
 }
 
+/* ---------- Cookie Banner ---------- */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--color-bg-secondary);
+    border-top: 1px solid var(--border-color);
+    padding: 20px;
+    z-index: 9999;
+    transform: translateY(100%);
+    transition: transform var(--transition-normal);
+    backdrop-filter: blur(10px);
+}
+
+.cookie-banner.visible {
+    transform: translateY(0);
+}
+
+.cookie-banner__content {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.cookie-banner__text {
+    flex: 1;
+}
+
+.cookie-banner__text p {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    margin: 0 0 5px 0;
+}
+
+.cookie-banner__link {
+    color: var(--color-accent-1);
+    font-size: 0.85rem;
+    text-decoration: underline;
+    transition: color var(--transition-fast);
+}
+
+.cookie-banner__link:hover {
+    color: var(--color-accent-2);
+}
+
+.cookie-banner__actions {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.btn--small {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+    .cookie-banner__content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .cookie-banner__actions {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ---------- Map Placeholder ---------- */
+.map__placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--color-bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    border-radius: 20px;
+}
+
+.map__placeholder.hidden {
+    display: none;
+}
+
+.map__placeholder-content {
+    text-align: center;
+    padding: 40px;
+}
+
+.map__placeholder-content svg {
+    width: 60px;
+    height: 60px;
+    stroke: var(--color-text-muted);
+    margin-bottom: 20px;
+}
+
+.map__placeholder-content p {
+    color: var(--color-text-secondary);
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+/* ---------- Footer Links ---------- */
+.footer__links {
+    margin-top: 5px;
+}
+
+.footer__links a {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.footer__links a:hover {
+    color: var(--color-accent-1);
+}
+

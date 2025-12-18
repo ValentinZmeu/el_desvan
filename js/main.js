@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initCursorGlow();
     initBackToTop();
+    initCookieConsent();
 });
 
 // ========== Back to Top Button ==========
@@ -579,10 +580,73 @@ function throttle(func, limit) {
     };
 }
 
+// ========== Cookie Consent ==========
+function initCookieConsent() {
+    const cookieBanner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('cookie-accept');
+    const rejectBtn = document.getElementById('cookie-reject');
+    const acceptMapBtn = document.getElementById('accept-cookies-map');
+    const mapPlaceholder = document.getElementById('map-placeholder');
+    const googleMap = document.getElementById('google-map');
+
+    // Check if user has already made a choice
+    const cookieConsent = localStorage.getItem('cookieConsent');
+
+    if (cookieConsent === 'accepted') {
+        // Load map immediately if already accepted
+        loadGoogleMap();
+    } else if (cookieConsent === 'rejected') {
+        // Keep map hidden, don't show banner again
+    } else {
+        // Show cookie banner after a short delay
+        setTimeout(() => {
+            cookieBanner.classList.add('visible');
+        }, 1000);
+    }
+
+    // Accept cookies
+    if (acceptBtn) {
+        acceptBtn.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'accepted');
+            cookieBanner.classList.remove('visible');
+            loadGoogleMap();
+        });
+    }
+
+    // Reject cookies
+    if (rejectBtn) {
+        rejectBtn.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'rejected');
+            cookieBanner.classList.remove('visible');
+        });
+    }
+
+    // Accept from map placeholder button
+    if (acceptMapBtn) {
+        acceptMapBtn.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'accepted');
+            cookieBanner.classList.remove('visible');
+            loadGoogleMap();
+        });
+    }
+
+    // Function to load Google Map
+    function loadGoogleMap() {
+        if (googleMap && mapPlaceholder) {
+            const mapSrc = googleMap.getAttribute('data-src');
+            if (mapSrc) {
+                googleMap.src = mapSrc;
+                googleMap.style.display = 'block';
+                mapPlaceholder.classList.add('hidden');
+            }
+        }
+    }
+}
+
 // ========== Preloader (Optional) ==========
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
-    
+
     // Trigger hero animations after load
     setTimeout(() => {
         document.querySelectorAll('.hero [data-aos]').forEach(el => {
