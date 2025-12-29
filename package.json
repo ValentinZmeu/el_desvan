@@ -1,0 +1,13 @@
+{
+  "name": "el-antiguo-desvan",
+  "version": "1.0.0",
+  "description": "Website for El Antiguo Desván pub",
+  "scripts": {
+    "dev": "browser-sync start --server --files '**/*.html, **/*.css, **/*.js' --no-notify",
+    "optimize:logos": "node scripts/optimize-logos.js"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.3",
+    "sharp": "^0.34.5"
+  }
+}

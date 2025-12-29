@@ -2,8 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(git add:*)",
-      "Bash(git commit -m \"$(cat <<''EOF''\nActualización de imágenes y correcciones de estilo\n\n- Añadidas nuevas imágenes auténticas del pub (galería, ambiente, futbolín)\n- Actualizada sección About con nueva imagen del bar\n- Actualizada galería con fotos reales de clientes y ambiente\n- Corregido estilo de section tags (underline en vez de strikethrough)\n- Añadido logo en footer con efecto hover\n- Corregido orden del scroll indicator (línea arriba, texto abajo)\n- Actualizado enlace de Google Maps\n- Eliminadas imágenes no utilizadas\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n)\")",
-      "Bash(git commit -m \"$(cat <<''EOF''\nOptimización SEO y rendimiento con .htaccess\n\n- Añadido .htaccess con compresión GZIP\n- Configurado caché del navegador (1 año para assets)\n- Redirección HTTPS y canónica (non-www)\n- Cabeceras de seguridad (X-Frame-Options, XSS, etc.)\n- Protección contra hotlinking de imágenes\n- Añadido robots.txt con referencia a sitemap\n- Añadido sitemap.xml para indexación\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n)\")"
+      "Bash(git commit*)",
+      "Bash(npm install:*)",
+      "Bash(node:*)"
     ]
   }
 }

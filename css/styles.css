@@ -309,7 +309,9 @@ button {
 
 .logo__img {
     height: 60px;
-    width: auto;
+    width: 60px;
+    border-radius: 50%;
+    object-fit: cover;
     filter: brightness(1.05) drop-shadow(0 0 3px var(--color-accent-1)) drop-shadow(0 0 8px rgba(255, 45, 117, 0.25));
     animation: neonFlickerSubtle 4s ease-in-out infinite;
     animation-delay: 2s;
